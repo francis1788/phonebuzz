@@ -185,11 +185,14 @@ def handle_number():
         ident = ident.fetchone()
         ident = ident[0]
         cursor.close()
-    cursor = connect.cursor()
-    stmt = "UPDATE calls SET num=" + str(number) + " WHERE id=" + str(ident)
-    print(stmt)
-    cursor.execute(stmt)
-    connect.commit()
+    try:
+        cursor = connect.cursor()
+        stmt = "UPDATE calls SET num=" + str(number) + " WHERE id=" + str(ident)
+        print(stmt)
+        cursor.execute(stmt)
+        connect.commit()
+    except:
+        print("incoming call")
 
     resp = VoiceResponse()
     message = "..."
