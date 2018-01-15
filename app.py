@@ -205,7 +205,7 @@ def handle_number():
     return str(resp)
 
 
-if __name__ == "__main__":
-	app.run(debug=True)
-
+if __name__ == '__main__':
+    from os import environ
+    app.run(debug=False, port=environ.get("PORT", 5000), processes=2)
 
