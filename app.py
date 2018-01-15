@@ -167,7 +167,7 @@ def replay_number():
 
     message += fizz_bizz(number)
     
-    message += "......Thank you for using PhoneBuzz!"   
+    message += "...Thank you for using PhoneBuzz!"   
     
     resp.say(message, voice="woman")
     return str(resp)
@@ -197,7 +197,7 @@ def handle_number():
     lst = fizz_bizz(number)
     
     message += lst
-    message += "......Thank you for using PhoneBuzz!"
+    message += "...Thank you for using PhoneBuzz!"
     resp.say(message, voice="woman")
     cursor = connect.cursor()
     cursor.execute("DELETE FROM calls WHERE num is NULL")
