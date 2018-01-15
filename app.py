@@ -1,8 +1,7 @@
 import os
 import twilio.twiml
 from twilio import *
-from twilio import twiml
-from twilio.rest import TwilioRestClient
+from twilio.rest import Client
 from flask import Flask, request
 from flask import render_template
 from flask import g
@@ -88,7 +87,7 @@ def caller(phone, delay, id):
     phone = str(phone)
     if delay:
        time.sleep(int(delay))
-    client = TwilioRestClient(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN)
+    client = Client(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN)
     call = client.calls.create(to='+1'+phone,
                                from_=TWILIO_CALLER_ID,
                                url=url+"response?id="+str(id))
@@ -118,7 +117,7 @@ def response():
     return str(resp)
 
 def replay_call(num, delay, phone):
-    client = TwilioRestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     new_url = url + "replay-number?num=" + str(num)
     print(phone)
     time.sleep(delay)
