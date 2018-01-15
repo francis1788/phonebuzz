@@ -141,7 +141,7 @@ def replay(id):
             <title>Recall Could Not Be Initiated</title>
               <h1>There was no number stored for this replay. </h1>
               <h2>This is probably because a user did not input a number or hung up. This field will now be deleted from the home page.</h2>
-              <a href=()>Return</a>'''.format(url)
+              <a href={}>Return</a>'''.format(url)
     cursor = connect.cursor()
     insert = "INSERT INTO calls (id, datetime, delay, phonenum, num) VALUES "
     insert = insert + "(NULL, CURRENT_TIMESTAMP," + str(delay) + "," + str(phone) + "," + str(num) + ")"
