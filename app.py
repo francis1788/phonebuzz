@@ -17,7 +17,7 @@ app = Flask(__name__)
 TWILIO_CALLER_ID = "+18312469407"
 TWILIO_ACCOUNT_SID = 'AC8fde0d1a6081058d9779798929b3623a'
 TWILIO_AUTH_TOKEN = '4de220ce7dfd39fe43ced795fbd15df4'
-url = "https://5839f837.ngrok.io/"
+url = "https://phonebuzz-francis.herokuapp.com/"
 
 
 def fizz_bizz(number):
