@@ -70,7 +70,7 @@ def main():
             print('Error')
         message = "Thank you for using PhoneBuzz! Your call to "+str(phone)+" has been initiated."
         title = "Call Initiated"
-        return render_template('timer.html',call=title,delay=int(delay), message=message, host_url=host_url)   
+        return render_template('timer.html',call=title,delay=int(delay), message=message, url=host_url)   
         
     cursor = connect.cursor()
     cursor.execute('SELECT * FROM calls')
@@ -155,7 +155,7 @@ def replay(id):
     
     message = "Thank you for using PhoneBuzz! Your recall to "+str(phone)+", with delay "+ str(delay) + " seconds has been initiated."
     title = "Recall Initiated"
-    return render_template('timer.html', delay=int(delay),message=message,call=title)
+    return render_template('timer.html', delay=int(delay),message=message,call=title, url=host_url)
 
 @app.route("/replay-number", methods=['GET', 'POST'])
 def replay_number():
