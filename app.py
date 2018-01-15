@@ -3,7 +3,6 @@ import twilio.twiml
 from twilio import *
 from twilio import twiml
 from twilio.rest import TwilioRestClient
-from twilio import TwilioRestException
 from flask import Flask, request
 from flask import render_template
 from flask import g
