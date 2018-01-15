@@ -70,7 +70,7 @@ def main():
             print('Error')
         message = "Thank you for using PhoneBuzz! Your call to "+str(phone)+" has been initiated."
         title = "Call Initiated"
-        return render_template('timer.html',call=title,delay=int(delay), message=message)   
+        return render_template('timer.html',call=title,delay=int(delay), message=message, host_url=host_url)   
         
     cursor = connect.cursor()
     cursor.execute('SELECT * FROM calls')

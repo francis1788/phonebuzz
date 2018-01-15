@@ -25,7 +25,7 @@ TWILIO_CALLER_ID = ________________
 ```
 Then you will need to change this line in app.py to the url which you will be hosting your website off of. 
 ```
-url = _________________
+host_url = _________________
 ```
 ## Thank You!
 For any questions email me at (francis1788@gmail.com)
