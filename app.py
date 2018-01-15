@@ -9,6 +9,7 @@ import time
 import sqlite3
 import json
 from multiprocessing import Process
+from twilio.twiml.voice_response import VoiceResponse, Say
 
 app = Flask(__name__)
 
@@ -96,7 +97,7 @@ def caller(phone, delay, id):
 
 @app.route("/response", methods=['GET', 'POST'])
 def response():
-    resp = twilio.twiml.Response()
+    resp = VoiceResponse()
 
     signature = request.headers.get('X-Twilio-Signature', '')
     print(signature)
@@ -161,7 +162,7 @@ def replay_number():
     number = request.args.get("num")
     number = int(number)
     
-    resp = twiml.Response()
+    resp = VoiceResponse()
     message = "Welcome to PhoneBuzz Replay! The number is " + str(number) + "..."
 
     message += fizz_bizz(number)
