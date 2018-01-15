@@ -274,14 +274,14 @@ input:focus ~ .highlight {
 	<div>
 	<form method="POST">
           <div class="group">      
-		      <input type="text" name="phone" required>
+		      <input type="number" min="0" name="phone" required>
 		      <span class="highlight"></span>
 		      <span class="bar"></span>
 		      <label>Phone Number (Required, US only)</label>
 		    </div>
           <br>
           <div class="group">      
-		      <input type="text" name="delay" required>
+		      <input type="number" name="delay" min="0" required>
 		      <span class="highlight"></span>
 		      <span class="bar"></span>
 		      <label>Delay (Required, Seconds)</label>
