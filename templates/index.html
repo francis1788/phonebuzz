@@ -1,0 +1,335 @@
+<!doctype html>
+<!-- Credit for inspiration and implementation of table design goes to Pablo Fernandez-->
+<!-- Credit for inspiration and implementation of input boxes goes to Google -->
+<!-- CSS -->
+	<style type="text/css">
+.button {
+    background-color: #ffffff;
+    border: none;
+    color: #0cac40;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.submit {
+    background-color: #0cac40;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.container th h1 {
+	  font-weight: bold;
+	  font-size: 1.3em;
+  text-align: left;
+  color: #ffffff;
+}
+
+.container 
+	.container th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #0cac40;
+}
+	.container td {
+		text-align: center;
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #b7b7b7;
+	   -moz-box-shadow: 0 2px 2px -2px #b7b7b7;
+	        box-shadow: 0 2px 2px -2px #b7b7b7;
+	}
+
+	.container {
+		  text-align: left;
+		  overflow: hidden;
+		  width: 80%;
+		  margin: 0 auto;
+	  display: table;
+	  padding: 0 0 8em 0;
+	}
+
+	.container td, .container th {
+		  padding-bottom: 2%;
+		  padding-top: 2%;
+	  padding-left:2%;  
+	}
+
+	.container tr {
+		  background-color: #cacaca;
+		  font-family: 'Montserrat', sans-serif;
+		font-weight: 500;
+
+	}
+
+
+	.container th {
+		  background-color: #0cac40;
+	}
+
+
+	.container tr:hover {
+	   background-color: #ffffff;
+	-webkit-box-shadow: 0 6px 6px -6px #0cac40;
+		   -moz-box-shadow: 0 6px 6px -6px #0cac40;
+		        box-shadow: 0 6px 6px -6px #0cac40;
+	}
+
+	.container td:hover {
+	  background-color: #0cac40;
+	  color: #ffffff;
+	  font-weight: bold;
+	  
+	  box-shadow: #b7b7b7 -1px 1px, #b7b7b7 -2px 2px, #b7b7b7 -3px 3px, #b7b7b7 -4px 4px, #b7b7b7 -5px 5px, #b7b7b7 -6px 6px;
+	  transform: translate3d(6px, -6px, 0);
+	  
+	  transition-delay: 0s;
+		  transition-duration: 0.4s;
+		  transition-property: all;
+	  transition-timing-function: line;
+	}
+
+	form {
+		text-align: center;
+	}
+	div {
+		text-align: center;
+	}
+	.phone {
+		font-size: 3.5em;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		color: #b7b7b7;
+		text-align: center;
+}
+.buzz {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		color: #0cac40;
+		text-align: center;
+}
+.Call {
+	font-size: 2em;
+	font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		color: #0cac40;
+		text-align: center;
+}
+.History {
+	font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		color: #b7b7b7;
+		text-align: center;
+}
+.phone_input {
+
+}
+.group 			  { 
+  position:relative; 
+  margin-bottom:45px;
+  display:inline-block
+  
+}
+input 				{
+  font-size:18px;
+  font-family: 'Montserrat', sans-serif;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#b7b7b7; 
+  font-size:18px;
+  font-weight:normal;
+  font-family: 'Montserrat', sans-serif;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#0cac40;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#b7b7b7; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#0cac40; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#0cac40; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#0cac40; }
+  to 	{ width:0; background:transparent; }
+}
+.textt {
+	color:#b7b7b7;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	margin: 50px 50px;
+	text-align: center;
+}
+.rod {
+	color:red;
+}
+
+.spread{
+	margin-top: 100px;
+}
+	</style>
+
+<!-- HTML -->
+
+
+	<title>
+		PhoneBuzz
+	</title>
+	<p class="phone">Phone<span class="buzz">Buzz</span></p>
+
+<div>
+	<div>
+		<p class="textt"> Welcome to PhoneBuzz! PhoneBuzz is a webapplication that uses the Twilio API to call a user, receive a numerical input from the user, and then recite the FizzBuzz sequence up to that input unto the user. To use this application one can call into the application, use the application to create an outgoing call, or replay a previous outgoing call in the call history. <br><span class="rod">Disclaimer:</span> The Twilio account associated with this website is a free one, so the "Call from PhoneBuzz" option will not work. </p>
+	</div>
+	<div class="spread">
+		<h3><p class="Call">Call <span class="History">PhoneBuzz</span></p></h3>
+	</div>
+	<div>
+		<button href="tel:8312469407" class="submit">Call <strong>831-246-9407</strong></button>
+	</div>
+	<div class="spread">
+		<h3><p class="Call">Call from<span class="History"> PhoneBuzz</span></p></h3>
+	</div>
+	<div>
+	<form method="POST">
+          <div class="group">      
+		      <input type="text" name="phone" required>
+		      <span class="highlight"></span>
+		      <span class="bar"></span>
+		      <label>Phone Number (Required, US only)</label>
+		    </div>
+          <br>
+          <div class="group">      
+		      <input type="text" name="delay" required>
+		      <span class="highlight"></span>
+		      <span class="bar"></span>
+		      <label>Delay (Required, Seconds)</label>
+		    </div>
+		    <br>
+          <button type="submit" class="submit" id="submission">Click to Call</button><br>
+      </form>
+  </div>
+</div>
+      <div class="spread">
+		<div>
+			<h3><p class="Call">Call <span class="History">History</span></p></h3>
+		</div>
+		<div>
+	      <table class="container">
+	      	 <thead>
+				<tr>
+				  <th><h1>Date/Time (UTC)</h1></th>
+				  <th><h1>Number</h1></th>
+				  <th><h1>Delay</h1></th>
+				  <th><h1>Phone #</h1></th>
+				  <th><h1>Replay</h1></th>
+				</tr>
+			 </thead>
+			 <tbody>
+			 	{% for call in calls %}
+			    <tr>
+			        <td>{% print(call[1]) %}</td>
+			        <td>{% print(call[4]) %}</td>
+			        <td>{% print(call[2]) %}&nbsp;seconds</td>
+			        <td>{% print(call[3]) %}</td>
+					<td> 
+						<form action="/replay/{{call[0]}}">
+							<button class="button">Replay</button>
+						</form>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+<p class="textt"> Created by Francis Kumar in response to LendUp's coding challenge. </p>
+
+
+<!-- JavaScript -->
+
+
+<script type="text/javascript">
+</script>
+</html> 
