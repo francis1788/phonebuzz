@@ -18,7 +18,7 @@ app = Flask(__name__)
 TWILIO_CALLER_ID = "+18312469407"
 TWILIO_ACCOUNT_SID = 'AC8fde0d1a6081058d9779798929b3623a'
 TWILIO_AUTH_TOKEN = '4de220ce7dfd39fe43ced795fbd15df4'
-url = "https://phonebuzz-francis.herokuapp.com/"
+host_url = "https://phonebuzz-francis.herokuapp.com/"
 
 
 def fizz_bizz(number):
@@ -55,7 +55,7 @@ def main():
         except:
             return '''<h1>Sorry {} is not a verified or valid phone number.</h1>
                     <h2> Please input a valid number </h2>
-                  <a href={}>Return</a>'''.format(phone,url)  
+                  <a href={}>Return</a>'''.format(phone,host_url)  
         try:
             insert_into_sql(phone, delay)
             cursor = connect.cursor()
@@ -91,7 +91,7 @@ def caller(phone, delay, id):
     client = Client(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN)
     call = client.calls.create(to='+1'+phone,
                                from_=TWILIO_CALLER_ID,
-                               url=url+"response?id="+str(id))
+                               url=host_url+"response?id="+str(id))
     print(call)
 
 
@@ -119,7 +119,7 @@ def response():
 
 def replay_call(num, delay, phone):
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-    new_url = url + "replay-number?num=" + str(num)
+    new_url = host_url + "replay-number?num=" + str(num)
     print(phone)
     time.sleep(delay)
     call = client.calls.create(to='+1'+str(phone),
@@ -142,7 +142,7 @@ def replay(id):
             <title>Recall Could Not Be Initiated</title>
               <h1>There was no number stored for this replay. </h1>
               <h2>This is probably because a user did not input a number or hung up. This field will now be deleted from the home page.</h2>
-              <a href={}>Return</a>'''.format(url)
+              <a href={}>Return</a>'''.format(host_url)
     cursor = connect.cursor()
     insert = "INSERT INTO calls (id, datetime, delay, phonenum, num) VALUES "
     insert = insert + "(NULL, CURRENT_TIMESTAMP," + str(delay) + "," + str(phone) + "," + str(num) + ")"
