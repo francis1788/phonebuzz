@@ -2,7 +2,6 @@ import os
 import twilio.twiml
 from twilio import *
 from twilio import twiml
-from twilio.util import RequestValidator
 from twilio.rest import TwilioRestClient
 from twilio import TwilioRestException
 from flask import Flask, request
